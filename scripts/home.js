@@ -1,15 +1,27 @@
-$(function () {
-    $('#example').popover('show');
-  });
-  window.onload=function(){
-    console.log(localStorage.getItem('name'));
-    console.log(sessionStorage.getItem('name'));
-    let val=document.getElementById('img');
-    if(localStorage.getItem('name')!=null&&localStorage.getItem('name')!=undefined){
-        val.innerHTML=localStorage.getItem('name').charAt(0);
-    }
-    else if(sessionStorage.getItem('name')!=null&&sessionStorage.getItem('name')){
-        val.innerHTML=sessionStorage.getItem('name').charAt(0);
 
+  window.onload=function(){
+    let val=document.getElementById('letter');
+    if(localStorage.getItem('name')!=null&&localStorage.getItem('name')!=undefined){
+        setStylesforProfile(val,localStorage.getItem('name'));
+       
     }
-  }
+    else if(sessionStorage.getItem('name')!=null&&sessionStorage.getItem('name')!=undefined){
+        
+        setStylesforProfile(val,sessionStorage.getItem('name'));
+       
+    }
+   document.getElementById('subBtn').onclick=signOut;
+
+}
+function setStylesforProfile(event,value){
+    event.innerHTML=value.charAt(0);
+    event.style.backgroundColor= "green";
+   event.style.borderRadius="100%";
+}
+function signOut(){
+    if(localStorage.getItem('id')!=null||localStorage.getItem('id')!=undefined){
+        localStorage.removeItem('id');
+        localStorage.removeItem('name');
+    }
+    window.location.href='/index.html';
+}

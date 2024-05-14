@@ -29,22 +29,16 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
                     <button class="navbar-toggler col-2" type="button" data-bs-toggle="collapse" data-bs-target="#navLink">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-success rounded-5" id="img">
-                             
-                        </a>
-
-                    </li>
                    <div class="collapse navbar-collapse" id="navLink">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="#" class="nav-item disabled me-2">DashBoard</a>
+                            <a href="#" class="nav-link disabled me-2">DashBoard</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link me-2">Create New Task</a>
+                            <a href="#" class="nav-link">Create New Task</a>
                         </li>
                         <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle me-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Dropdown
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -55,9 +49,26 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
                                     </div>
                        </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link me-1">Add New User</a>
+                            <a href="#" class="nav-link me-2">Add New User</a>
                         </li>
                     </ul>
+                    <a href="#modalSignout" id="letter" class="col-1 offset-3 btn btn-success" role="button" data-bs-toggle="modal"></a>
+                    <div id="modalSignout" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-heading">
+                                    <h5 class="modal-title display-3">SignOut
+                                        <span class="btn btn-close" data-bs-dismiss="modal"></span>
+                                    </h5>
+                                </div>
+                                <div class="modal-body">Are You sure you want to signout from your account?</div>
+                                <div class="modal-footer">
+                                    <input type="button" class="btn btn-primary" id="subBtn" value="signout">
+                                    <button class="btn btn-secondary" data-bs-dismiss="modal">cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 </nav>
         </div>
