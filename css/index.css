@@ -1,0 +1,65 @@
+.caveat-title {
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    color:goldenrod;
+    font-size:100px;
+    text-shadow: 5px 5px 10px #E6ADBC;
+    text-decoration: none !important;
+  }
+  .bg{
+    background-image: url("../images/login.png");
+    background-size: cover;
+   
+  }
+  @media (min-width:1000px) {
+    
+ 
+    .log{
+        margin-top: 180px !important;
+    }
+}
+body{
+    background-color: #f0f2f5 !important;
+}
+.log{
+    padding-bottom:200px;
+    padding-top:20px;
+
+}
+.shadows-into-light-regular {
+    font-family: "Shadows Into Light", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color:#F0f8FF;
+    text-align: center;
+    font-size:18px;
+  }
+  #login{
+    background: radial-gradient(hsl(323, 56%, 64%), #9198e5);
+    align-content:center;
+    margin-left: 25%;
+    width:230px;
+  }
+  .ac{
+    margin-top:25%
+  }
+  .dancing-script {
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    color:#9198e5;
+    text-shadow: 5px 5px 10px #E6ADBC;
+  }
+  .navbar{
+    background-color: #9198e5;
+    
+  }
+  .nav-item a{
+    color:rgb(217, 214, 214);
+    text-decoration: none;
+    font-weight:bold;
+    float:right;
+  }
