@@ -84,15 +84,17 @@ body{
     background: radial-gradient(hsl(323, 56%, 64%), #9198e5);
     border-radius: 0 0 30% 0;
   }
-  .img{
+  .img,.img1{
     display:block;
     margin-left:auto;
     margin-right:auto;
     border-radius:100%;
     width:100px;
     height:100px;
-    bottom: -150px;
     position: relative;
+  }
+  .img{
+  bottom: -150px;
   }
   #rName{
     margin-top:5rem;
@@ -100,5 +102,14 @@ body{
   #title{
     padding-left: 10px;
     padding-top: 70px;
+  }
+  .box{
+    border: 1px solid white;
+    box-shadow: 5px 5px lightgray ;
+    background-color: white;
+    margin-top:70px;
+  }
+  .img1{
+    top:-50px;
   }
 

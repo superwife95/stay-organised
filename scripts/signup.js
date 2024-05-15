@@ -8,6 +8,9 @@ function onSignUp(){
    let uName = document.getElementById('rUName').value;
    let pwd = document.getElementById('rUPwd').value;
    let res = /^[a-zA-Z]+$/.test(name);
+   document.getElementById('unErr').innerHTML="";
+   document.getElementById('uuErr').innerHTML="";
+   document.getElementById('upErr').innerHTML="";
    if(name==''||name==null||name==undefined){
       errorMessage(document.getElementById('unErr'),"Name should not be empty");
    }
