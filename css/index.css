@@ -1,43 +1,48 @@
-.caveat-title {
-    font-family: "Caveat", cursive;
-    font-optical-sizing: auto;
-    font-weight: bold;
-    font-style: normal;
-    color:goldenrod;
-    font-size:100px;
-    text-shadow: 5px 5px 10px #E6ADBC;
-    text-decoration: none !important;
-  }
-  .bg{
-    background-image: url("../images/login.png");
-    background-size: cover;
-   
-  }
+
+.caveat-brush-regular {
+  font-family: "Caveat Brush", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color:#e2e2d8;
+  text-shadow: 5px 5px 10px black;
+  text-align:center;
+  text-decoration: none;
+}
+.log{
+  width:100%;
+}
+  
   @media (min-width:1000px) {
     
  
     .log{
-        margin-top: 180px !important;
+        margin-top: 170px !important;
+        background-color: white;
+        border:1px solid  #f0f2f5;
+        padding-bottom: 120px !important;
+        width:100%;
+    }
+    .contDim{
+      height:600px;
+      width:500px;
     }
 }
 body{
-    background-color: #f0f2f5 !important;
+    background-color: #eeeef1 !important;
 }
-.log{
-    padding-bottom:200px;
-    padding-top:20px;
+.cookie-regular {
+  font-family: "Cookie", cursive;
+  font-weight: 600;
+  font-style: normal;
+  color:white;
+  text-align: center;
+  font-size: x-large;
+}
 
-}
-.shadows-into-light-regular {
-    font-family: "Shadows Into Light", cursive;
-    font-weight: 400;
-    font-style: normal;
-    color:#F0f8FF;
-    text-align: center;
-    font-size:18px;
+  #login,#signUp,.bg,.navbar{
+    background: radial-gradient(hsl(323, 56%, 64%), #9198e5);
   }
   #login{
-    background: radial-gradient(hsl(323, 56%, 64%), #9198e5);
     align-content:center;
     margin-left: 25%;
     width:230px;
@@ -53,15 +58,14 @@ body{
     color:#9198e5;
     text-shadow: 5px 5px 10px #E6ADBC;
   }
-  .navbar{
-    background-color: #9198e5;
-    
-  }
-  .nav-item a{
-    color:rgb(217, 214, 214);
+  .nav-item a, .nav-link{
+    color:white;
     text-decoration: none;
     font-weight:bold;
     float:right;
+  }
+  .dropdown-item{
+    color:black;
   }
   #letter{
     color:white;
@@ -76,4 +80,25 @@ body{
     transform: scale(1.1);
     opacity:0.5;
   }
-  
+  .topStyle{
+    background: radial-gradient(hsl(323, 56%, 64%), #9198e5);
+    border-radius: 0 0 30% 0;
+  }
+  .img{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    border-radius:100%;
+    width:100px;
+    height:100px;
+    bottom: -150px;
+    position: relative;
+  }
+  #rName{
+    margin-top:5rem;
+  }
+  #title{
+    padding-left: 10px;
+    padding-top: 70px;
+  }
+
