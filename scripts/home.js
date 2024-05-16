@@ -1,4 +1,4 @@
-
+ import { getUsers } from "./util.js";
   window.onload=function(){
     let val=document.getElementById('letter');
     if(localStorage.getItem('name')!=null&&localStorage.getItem('name')!=undefined){
@@ -10,6 +10,19 @@
         setStylesforProfile(val,sessionStorage.getItem('name'));
        
     }
+    let menu = document.getElementById('navmenu');
+    let users = Promise.resolve(getUsers('http://localhost:8083/api/users'));
+    users.then(data=>{
+     for (const [key, value] of Object.entries(data)) {
+         let tag = document.createElement('a');
+          tag.setAttribute('class','dropdown-item');
+          tag.innerHTML=value.name;
+          tag.setAttribute('id',value.id);
+          tag.style.color="black";
+          menu.appendChild(tag);
+     }
+ });
+
    document.getElementById('subBtn').onclick=signOut;
 
 }
