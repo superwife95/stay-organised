@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="css/index.css">
         <script src="scripts/signup.js"></script>
         <link rel="icon" href="images/logo.webp">
+        <script type="module" src="scripts/util.js"></script>
+        <script type="module" src="scripts/addTodo.js"></script>
         <title>create New Task</title>
     </head>
     <body>
@@ -23,14 +25,23 @@
             <h5 class="display-5 text-center text-info mt-5">Add New Task</h5>
         </header>
         <main>
-            <div class="container mt-5">
+            <div class="container mt-5 contDim">
                 <div class="row box">
                         <img src="images/todo.png" class="col-2 img1">
                        <form class="form">
-                        <input type="select" class="form-select-sm col-6 offset-3" mt-5 id="type">
-                        <div class="form-check">
-                            <input type="form-chec"
-                        </div>
+                        <select class="form-select-sm col-8 offset-2" mt-5 id="cat">
+                        </select>
+                        <textarea class="form-control-sm col-8 offset-2 mt-3 border border-secondary" id="todoData" placeholder="Enter your task"></textarea>
+                        <input id="startDate" class="form-control-sm col-8 offset-2 mt-3 border border-secondary" type="text" placeholder=" Enter Deadline" onfocus="(this.type='date')">
+                        <select class="form-select-sm col-8 offset-2 mt-2" id="priority" placeholder="select priority">
+                            <option id="low" value="low">Low</option>
+                            <option id="medium" value="medium">Medium</option>
+                            <option id="high" value="high">High</option>
+                         </select>
+                        <select placeholder="Assign To" id="assign" class="col-8 offset-2 mt-3">
+                            <option selected>Assign to</option>
+                        </select>
+                        <input type="button" class="btn col-6 offset-3 mt-4 mb-5 text-light" id="signUp" value="Add Task">
                        </form>
                     </div>
             </div>
