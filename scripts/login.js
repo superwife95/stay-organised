@@ -1,3 +1,4 @@
+import { getUsers } from "./util.js";
 if(localStorage.getItem('id')!=null&&localStorage.getItem('id')!=undefined){
     window.location.href='/home.html';
 }
@@ -6,6 +7,8 @@ window.onload=function(){
     loginBtn.onclick=login;
 }
 function login(){
+    document.getElementById('uError').innerHTML="";
+    document.getElementById('pwdError').innerHTML="";
     let userName=document.getElementById('uEmail').value;
     let password=document.getElementById('name').value;
     let isChecked= document.getElementById('remMe').checked;
@@ -22,30 +25,30 @@ function login(){
         
     }
     else{
-        fetch('http://localhost:8083/api/users',{
-            method:"get",
-        }).then(response=>response.json())
-          .then(data=>{
-                for (const [key, value] of Object.entries(data)) {
-                 if(value.username==userName){
-                    if(isChecked==true){
-                        localStorage.setItem("id",value.id);
-                        localStorage.setItem("name",value.name);
-                    }
-                    else{
-                        sessionStorage.setItem("id",value.id);
-                        sessionStorage.setItem("name",value.name);
-                    }
-                    window.location.href="/home.html";
-                    break;
-                 }
-                 else{
-                    document.getElementById('uError').innerHTML="Invalid User Name or password";
-                    document.getElementById('uError').style.color="red";
-                 }
-            }
-            
-          });
+        let users = Promise.resolve(getUsers('http://localhost:8083/api/users'));
+        users.then(data=>{
+            for (const [key, value] of Object.entries(data)) {
+             if(value.username==userName && value.password==password){
+                if(isChecked==true){
+                    localStorage.setItem("id",value.id);
+                    localStorage.setItem("name",value.name);
+                }
+                else{
+                    sessionStorage.setItem("id",value.id);
+                    sessionStorage.setItem("name",value.name);
+                }
+                window.location.href="/home.html";
+                break;
+             }
+             else{
+                document.getElementById('uError').innerHTML="Invalid User Name or password";
+                document.getElementById('uError').style.color="red";
+             }
+        }
+        
+      });
+       
+         
     }
    
 }

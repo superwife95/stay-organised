@@ -13,7 +13,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Caveat+Brush&family=Cookie&family=Dancing+Script:wght@400..700&family=Danfo&family=Nabla&display=swap" rel="stylesheet">
-        <script src="scripts/login.js"></script>
+        <script type="module" src="scripts/login.js"></script>
+        <script type="module" src="scripts/util.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
             integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
             crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -32,15 +33,15 @@
             <h2 class="display-3 text-center mt-5 dancing-script">Welcome Back!!</h2>
             <div class="row">
                 <form class="form">
-                <div class="input-group offset-3 mt-4 col-12">
+                <div class="input-group col-8 offset-3 mt-4">
                     <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
                     <input id="uEmail" type="text" class="form-control-sm" placeholder="Enter your User Name" required>
-                    <div class="col-12" id="uError"></div>
+                    <div class="col-12 mt-1 mb-1" id="uError"></div>
                 </div>
-                <div class="input-group mt-4 offset-3 col-12">
+                <div class="input-group mt-4 col-8 offset-3">
                     <span class="input-group-text"><i class="fa fa-lock"></i></span>
                     <input id="name" type="password" class="form-control-sm" placeholder="Enter your password" required>
-                    <div id="pwdError"></div>
+                    <div id="pwdError" class="col-12 mt-2 mb-1"></div>
                 </div>
                 <div class="row mt-4">
                     <div class="form-check col-4 offset-3">

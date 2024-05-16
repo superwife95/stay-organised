@@ -26,6 +26,9 @@
       height:600px;
       width:500px;
     }
+    #title{
+      padding-top:0px !important;
+    }
 }
 body{
     background-color: #eeeef1 !important;
