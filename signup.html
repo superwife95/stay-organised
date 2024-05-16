@@ -14,7 +14,8 @@
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="css/index.css">
-        <script src="scripts/signup.js"></script>
+        <script type="module" src="scripts/signup.js"></script>
+        <script type="module" src="scripts/util.js"></script>
         <link rel="icon" href="images/logo.webp">
         <title>Sign Up</title>
     </head>
@@ -36,12 +37,12 @@
                         <div id="unErr"></div>
                         <input type="text" class=" col-6 form-control-sm mt-3 text-center rounded-5 offset-3" id="rUName" placeholder="Enter user name you want to use" required>
                         <div id="uuErr"></div>
-                        <input type="password" class="col-6 form-control-sm mt-3 text-center rounded-5 offset-3" id="rUPwd" placeholder="password" required>
+                        <input type="password" class="col-6 form-control-sm mt-3 text-center rounded-5 offset-3" id="rUPwd" placeholder=" Enter password" required>
                         <div id="upErr"></div>
                         <input type="password" class="col-6 form-control-sm mt-3 text-center rounded-5 offset-3" id="rUcPwd" placeholder=" Confirm password" required>
                         <div id="ucpErr"></div>
                         <input type="button" class="btn col-6 mt-4 rounded-5 text-center offset-3" id="signUp" value="SignUp">
-                        <p class="col-6 mt-4 offset-3"> I am already a member! <a href="index.html">Sign In</a></p>
+                        <p class="col-6 mt-4 offset-3 mb-3"> I am already a member! <a href="index.html">Sign In</a></p>
 
                     </form>
                 </div>

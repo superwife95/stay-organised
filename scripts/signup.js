@@ -1,4 +1,5 @@
 'use strict';
+import { addData , getUsers } from "./util.js";
 window.onload=function(){
     let signUp=document.getElementById("signUp");
     signUp.addEventListener('click',onSignUp);
@@ -7,33 +8,39 @@ function onSignUp(){
    let name = document.getElementById('rName').value;
    let uName = document.getElementById('rUName').value;
    let pwd = document.getElementById('rUPwd').value;
+   let cpwd = document.getElementById("rUcPwd").value;
    let res = /^[a-zA-Z]+$/.test(name);
    document.getElementById('unErr').innerHTML="";
    document.getElementById('uuErr').innerHTML="";
    document.getElementById('upErr').innerHTML="";
+   document.getElementById('ucpErr').innerHTML="";
    if(name==''||name==null||name==undefined){
       errorMessage(document.getElementById('unErr'),"Name should not be empty");
    }
-   else if(name.length<5||name.length>10||res==false){
+   else if(name.length<5||name.length>12||res==false){
     errorMessage(document.getElementById('unErr'),"invalid name");
    }
    else if(uName==''||uName==null||uName==undefined){
     errorMessage(document.getElementById('uuErr'),"user Name should not be empty");
    }
-   else if(uName.length<5 || uName.length>10){
+   else if(uName.length<5 || uName.length>12){
     errorMessage(document.getElementById('uuErr'),"invalid User Name");
    }
    else if(pwd==''||pwd==null||pwd==undefined){
      errorMessage(document.getElementById('upErr'),"password should not be empty");
    }
-   else if(pwd.length<5||pwd.length>10){
+   else if(pwd.length<5||pwd.length>12){
     errorMessage(document.getElementById('upErr'),"invalid password");
    }
+   else if(cpwd==''||cpwd==null||cpwd==undefined){
+    errorMessage(document.getElementById('ucpErr')," confirm password should not be empty");
+   }
+   else if(pwd!=cpwd){
+    errorMessage(document.getElementById('ucpErr'),"Password and Confirm Password should be same");
+   }
    else{
-    fetch(`http://localhost:8083/api/username_available/${uName}`,{
-        method:"get",
-    }).then(response=>response.json())
-    .then(data=>{
+     let isAvailable = getUsers(`http://localhost:8083/api/username_available/${uName}`);
+     isAvailable.then(data=>{
         if( data.available==false){
             errorMessage(document.getElementById('uuErr'),"user Name already taken");
         }
@@ -43,15 +50,9 @@ function onSignUp(){
                     "username": uName,
                     "password": pwd
                 };
-                fetch('http://localhost:8083/api/users',{
-                    method:"POST",
-                    body:JSON.stringify(data),
-                    headers:{
-                        "Content-type": 
-                        "application/json; charset=UTF-8"
-                    }
-                }).then(response=>{
-                    if(response.status==201){
+                let user = Promise.resolve(addData('http://localhost:8083/api/users',data));
+                user.then(data=>{
+                    if(data==201){
                         alert("Registered successfully");
                         window.location.href="/index.html";
                     }
