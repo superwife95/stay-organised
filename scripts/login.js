@@ -1,6 +1,6 @@
 import { getUsers } from "./util.js";
 if(localStorage.getItem('id')!=null&&localStorage.getItem('id')!=undefined){
-    window.location.href='/home.html';
+    window.location.href=`/home.html?cid=${localStorage.getItem('id')}`;
 }
 window.onload=function(){
     let loginBtn = document.getElementById("login");
@@ -32,12 +32,14 @@ function login(){
                 if(isChecked==true){
                     localStorage.setItem("id",value.id);
                     localStorage.setItem("name",value.name);
+                    localStorage.setItem('userName',value.username);
                 }
                 else{
                     sessionStorage.setItem("id",value.id);
                     sessionStorage.setItem("name",value.name);
+                    sessionStorage.setItem('userName',value.username);
                 }
-                window.location.href="/home.html";
+                window.location.href=`/home.html?cid=${sessionStorage.getItem('id')}`;
                 break;
              }
              else{

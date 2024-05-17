@@ -12,3 +12,8 @@ export async function addData(url,data){
     body:JSON.stringify(data)
    }).then(response=>response.status)
 }
+export async function deleteData(url){
+     return fetch(url,{
+      method:"DELETE",
+     }).then(response=>response.status);
+}

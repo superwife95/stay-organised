@@ -115,4 +115,24 @@ body{
   .img1{
     top:-50px;
   }
-
+  .dropdown-menu.show {
+    margin-left:80%;
+}
+#todoData::placeholder, #deadline::placeholder{
+  color:black;
+}
+.dropdown-toggle::after {
+  font-size: 20px !important;
+}
+.flex-column .nav-link{
+  background-color: rgb(218, 210, 210);
+  border-right: 1px double;
+  border-color: black;
+  font-weight: bold;
+}
+#cat{
+  background-color: white;
+  color:grey !important;
+  text-align: center;
+  margin-bottom:50px !important;
+}
