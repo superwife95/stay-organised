@@ -136,3 +136,9 @@ body{
   text-align: center;
   margin-bottom:50px !important;
 }
+iframe{
+  height:500px;
+}
+#catlist,#list{
+  border-right:2px double black;
+}

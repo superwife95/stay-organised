@@ -7,14 +7,15 @@
     loadusers('http://localhost:8083/api/categories','flex-sm-fill text-sm-center nav-link mb-2',catSelect);
   window.onload=function load(){
     let val=document.getElementById('letter');
-
     if(localStorage.getItem('name')!=null&&localStorage.getItem('name')!=undefined){
+        id=localStorage.getItem('id');
         uname=localStorage.getItem('userName');
         setStylesforProfile(val,localStorage.getItem('name'));
         document.getElementById('db').href=`home.html?cid=${localStorage.getItem('id')}`;
        
     }
     else if(sessionStorage.getItem('name')!=null&&sessionStorage.getItem('name')!=undefined){
+        id=sessionStorage.getItem('id');
         uname=sessionStorage.getItem('userName')
         setStylesforProfile(val,sessionStorage.getItem('name'));
         document.getElementById('db').href=`home.html?cid=${sessionStorage.getItem('id')}`
@@ -26,10 +27,33 @@
         {
         id = urlParams.get("cid");
         }
-        if(urlParams.has("tid")===true){
-            todoEdit(urlParams.get("tid"));
-        }
-    gettodos(id);
+        gettodos(id);
+        let frame=document.getElementsByTagName('iframe');
+        if(urlParams.has("tid") === true){
+               let tid=urlParams.get('tid');
+              let f=document.getElementById('fr');
+                let frame=document.createElement('iframe');
+                frame.setAttribute('src',`details.html?cid=${id}&tid=${tid}`);
+                f.appendChild(frame);
+
+             }
+             else if(urlParams.has("teid") === true){
+                let tid=urlParams.get('tid');
+               let f=document.getElementById('fr');
+                 let frame=document.createElement('iframe');
+                 frame.setAttribute('src',`details.html?cid=${id}&teid=${tid}`);
+                 f.appendChild(frame);
+ 
+              }
+             else{
+                let tid=urlParams.get('tid');
+              let f=document.getElementById('fr');
+                let frame=document.createElement('iframe');
+                frame.setAttribute('src',`details.html?cid=${id}`);
+                f.appendChild(frame);
+             }
+             
+    
    document.getElementById('subBtn').onclick=signOut;
    document.getElementById('delBtn').onclick=deleteAccount;
 
@@ -72,8 +96,9 @@ function gettodos(id){
         todoList.style.marginBottom='-200px';
         if(data.length==0){
             todoList.setAttribute('id','catMar');
-           todoList.innerHTML="Sorry no tasks for you yet";
-           todoList.style.fontSize='40px';
+            todoList.setAttribute('class','mt-5 text-center')
+           todoList.innerHTML="No tasks for you yet";
+           todoList.style.fontSize='20px';
         }
         else{
             for(let i=0;i<data.length;i++){
@@ -86,16 +111,22 @@ function gettodos(id){
                 card.appendChild(b);
                 let ti = document.createElement('h5');
                 ti.setAttribute('class','card-title h5');
-                ti.innerHTML=data[i].description+`<a href=home.html?tid=${data[i].id} data-bs-toggle='off-canvas'><i style='float:right' class='fa fa-edit'></i></a>`;
+                ti.innerHTML=`<a href=home.html?cid=${id}&tid=${data[i].id} data-bs-toggle='off-canvas'><i style='float:right;' class="fa fa-info-circle ms-2" aria-hidden="true"></i>
+                <a href=home.html?cid=${id}&teid=${data[i].id} data-bs-toggle='off-canvas'><i style='float:right' class="fa fa-edit" aria-hidden="true"></i>
+                `;
                 b.appendChild(ti);
+                let ti1 = document.createElement('h5');
+                ti1.setAttribute('class','card-text h5');
+                ti1.innerHTML=data[i].description;
+                ti.appendChild(ti1);
                 let d = document.createElement('div');
                 d.setAttribute('class','footer ps-1');
                 d.innerHTML=`Complete by: ${data[i].deadline}`;
                 card.appendChild(d);
                 todoList.appendChild(card);
                 if(data[i].completed==true){
-                    card.style.backgroundColor="green";
-                    card.style.color="white";
+                    card.style.backgroundColor="lightgreen";
+                    card.style.color="black";
                 }
                 else{
                     card.style.backgroundColor="yellow";
