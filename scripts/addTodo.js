@@ -28,13 +28,11 @@ window.onload=function(){
         let deadline = document.getElementById('deadline').value.toLocaleString();
         let priority=document.getElementById("priority").value;
         let user=document.getElementById('assign').value;
-        console.log(categorie);
         document.getElementById('catError').innerHTML='';
         document.getElementById('taskError').innerHTML='';
         document.getElementById('deadlineError').innerHTML='';
         document.getElementById('prioError').innerHTML='';
         document.getElementById('assignError').innerHTML='';
-        console.log(deadline);
         if(categorie==null||categorie==undefined||categorie==''||categorie=='null'){
            error( document.getElementById('catError'),'select category');
         }

@@ -141,4 +141,5 @@ iframe{
 }
 #catlist,#list{
   border-right:2px double black;
+  height:100vh;
 }

@@ -3,8 +3,9 @@
  var uname;
  let menu = document.getElementById('navmenu');
     let catSelect=document.getElementById('categeories');
-    loadusers('http://localhost:8083/api/users','dropdown-item btn',menu);
-    loadusers('http://localhost:8083/api/categories','flex-sm-fill text-sm-center nav-link mb-2',catSelect);
+    var pt=0,ht=0,ft=0,wt=0,ho=0,er=0;
+    var a=0;
+
   window.onload=function load(){
     let val=document.getElementById('letter');
     if(localStorage.getItem('name')!=null&&localStorage.getItem('name')!=undefined){
@@ -28,6 +29,7 @@
         id = urlParams.get("cid");
         }
         gettodos(id);
+        loadusers('http://localhost:8083/api/users','dropdown-item btn',menu);
         let frame=document.getElementsByTagName('iframe');
         if(urlParams.has("tid") === true){
                let tid=urlParams.get('tid');
@@ -69,6 +71,27 @@ function loadusers(url,ce,eve){
           tag.style.color="black";
           tag.href=`home.html?cid=${value.id}`;
           eve.appendChild(tag);
+          if(ce.includes('lex-sm-fill')===true){
+            if(value.name=='Financial Task'){
+                getBadgeCount(ft,value.id);
+            }
+            else if(value.name=='Work Task'){
+                getBadgeCount(wt,value.id);
+            }
+            else if(value.name=='Errand'){
+                getBadgeCount(er,value.id);
+            }
+            else if(value.name=='Personal Task'){
+                getBadgeCount(pt,value.id);
+            }
+            else if(value.name=='Household Task'){
+                getBadgeCount(ht,value.id);
+            }
+            else if(value.name=='Help Others'){
+                getBadgeCount(ho,value.id);
+            }
+           
+          }
      }
  });
 }
@@ -102,6 +125,25 @@ function gettodos(id){
         }
         else{
             for(let i=0;i<data.length;i++){
+                a++;
+                if(data[i].category=='Financial Task'){
+                    ft++;
+                }
+                else if(data[i].category=='Work Task'){
+                    wt++;
+                }
+                else if(data[i].category=='Errand'){
+                    er++;
+                }
+                else if(data[i].category=='Personal Task'){
+                    pt++;
+                }
+                else if(data[i].category=='Household Task'){
+                    ht++;
+                }
+                else if(data[i].category=='Help Others'){
+                    ho++;
+                }
                 let card= document.createElement('div');
                 card.setAttribute('class','card me-2 mt-2');
                 let h= document.createElement('div');
@@ -125,14 +167,29 @@ function gettodos(id){
                 card.appendChild(d);
                 todoList.appendChild(card);
                 if(data[i].completed==true){
-                    card.style.backgroundColor="lightgreen";
-                    card.style.color="black";
+                       card.style.backgroundColor="lightgreen";
+                       card.style.color="black";
                 }
                 else{
+                    if(data[i].priority=='High'){
+                        card.style.backgroundColor='rgb(255, 165, 0)';
+                    }
+                    else
                     card.style.backgroundColor="yellow";
                     card.style.color="black";
                 }
             }
+            getBadgeCount(a,'all');
         }
     });
+    loadusers('http://localhost:8083/api/categories','flex-sm-fill text-sm-center nav-link mb-2',catSelect);
+}
+function getBadgeCount(count,id){
+    console.log(count);
+    let i = document.getElementById(id);
+    let span=document.createElement('span');
+                span.setAttribute('class','badge rounded-3 bg-primary');
+               span.style.float="right";
+                span.innerHTML=count;
+                i.appendChild(span);
 }
