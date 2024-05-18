@@ -143,3 +143,7 @@ iframe{
   border-right:2px double black;
   height:100vh;
 }
+#catError{
+  margin-top: -50px !important;
+}
+
