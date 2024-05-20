@@ -30,7 +30,6 @@
         }
         gettodos(id);
         loadusers('http://localhost:8083/api/users','dropdown-item btn',menu);
-        let frame=document.getElementsByTagName('iframe');
         if(urlParams.has("tid") === true){
                let tid=urlParams.get('tid');
               let f=document.getElementById('fr');
@@ -40,12 +39,19 @@
 
              }
              else if(urlParams.has("teid") === true){
-                let tid=urlParams.get('tid');
+                let tid=urlParams.get('teid');
                let f=document.getElementById('fr');
                  let frame=document.createElement('iframe');
                  frame.setAttribute('src',`details.html?cid=${id}&teid=${tid}`);
                  f.appendChild(frame);
  
+              }
+              else if(urlParams.has("tuid") === true){
+                let f=document.getElementById('fr');
+                let frame=document.createElement('iframe');
+                frame.setAttribute('src',`update.html`);
+                f.appendChild(frame);
+                window.location.href=`/home.html?cid=${id}`
               }
              else{
                 let tid=urlParams.get('tid');
@@ -122,6 +128,7 @@ function gettodos(id){
             todoList.setAttribute('class','mt-5 text-center')
            todoList.innerHTML="No tasks for you yet";
            todoList.style.fontSize='20px';
+           getBadgeCount(a,'all');
         }
         else{
             for(let i=0;i<data.length;i++){
@@ -149,7 +156,6 @@ function gettodos(id){
                 let h= document.createElement('div');
                 let b=document.createElement('div');
                 b.setAttribute('class','card-body');
-                console.log(data[i].description);
                 card.appendChild(b);
                 let ti = document.createElement('h5');
                 ti.setAttribute('class','card-title h5');
@@ -185,7 +191,6 @@ function gettodos(id){
     loadusers('http://localhost:8083/api/categories','flex-sm-fill text-sm-center nav-link mb-2',catSelect);
 }
 function getBadgeCount(count,id){
-    console.log(count);
     let i = document.getElementById(id);
     let span=document.createElement('span');
                 span.setAttribute('class','badge rounded-3 bg-primary');

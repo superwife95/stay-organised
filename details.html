@@ -29,6 +29,17 @@
 
                 </table>
                 <form class="form" id="form">
+                    <div class="row box">
+                        <input type="text" class="form-control-sm col-8 offset-2 mt-3 disabled border border-secondary"id="cat">
+                        <input type="text" class="form-control-sm col-8 offset-2 mt-3 border border-secondary disabled" id="todoData" placeholder="Enter your task" style="margin-top:-30px !important"></textarea>
+                        <input id="deadline" class="form-control-sm col-8 offset-2 mt-3 border border-secondary disabled" type="text" placeholder=" Enter Deadline">
+                        <input type="text" class="form-select-sm col-8 offset-2 mt-3 disabled border border-secondary" id="priority" placeholder="select priority">
+                        <select class="form-select-sm col-8 offset-2 mt-3 border border-secondary" id="completed" placeholder="select priority">
+                            <option id="low" value="true">Task completed</option>
+                            <option id="medium" value="false">Task Not completed</option>
+                         </select>
+                        <input type="button" class="btn  btn-primary col-6 offset-3 mt-4 mb-5 text-light" id="UpdateTodo" value="update Task"></a>
+                    </div>
                    </form>
             </div>
         </main>
