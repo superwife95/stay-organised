@@ -1,9 +1,13 @@
 import { getUsers,addData } from "./util.js";
 let ne=document.getElementById('noEd');
+var user;
     var params = new URLSearchParams(location.search);
 window.onload=function()
 {
-   
+    console.log(window.location.href);
+if(params.has('name')===true){
+      user=params.get('name');
+}
 if(params.has('tid')===true){
    getTodo(params.get('tid'),false);
    document.getElementById("form").innerHTML="";
@@ -68,9 +72,9 @@ function updateTodo(){
        let d = Promise.resolve(addData("PUT",`http://localhost:8083/api/todos/${params.get('teid')}`,data));
         d.then(data=>{
             if(data==200){
-
-                alert("Task updated successfully");
-                parent.location.href=`/home.html?cid=${params.get('cid')}`;
+                alert("Update the Task Successfully");
+                console.log(parent.location.href);
+                parent.location.href=`/home.html?cid=${params.get('cid')}&name=${user}`;
             }
         });
         

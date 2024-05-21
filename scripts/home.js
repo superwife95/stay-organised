@@ -9,7 +9,7 @@
     var xValues = [];
     var yValues = [];
     var barColors = ["red", "green","blue","orange","brown","yellow"];
-    
+    var user;
   window.onload=function load(){
     let val=document.getElementById('letter');
     if(localStorage.getItem('name')!=null&&localStorage.getItem('name')!=undefined){
@@ -28,20 +28,34 @@
         document.getElementById('db').href=`home.html?cid=${sessionStorage.getItem('id')}`
        
     }
-    document.getElementById('user').innerHTML=`Welcome Back!! ${name}, Find your tasks below.`
     const urlParams = new URLSearchParams(location.search);
 	// location.search returns the query string part of the URL
         if (urlParams.has("cid") === true)
         {
         id = urlParams.get("cid");
         }
+        if(urlParams.has('name')){
+              user=urlParams.get('name');
+              if(user==name||user=='undefined'||user==null){
+                user='your';
+                document.getElementById('user').innerHTML=`Welcome Back!! ${name}, Find your tasks below.`
+              }
+              else{
+                document.getElementById('user').innerHTML=`Welcome Back!! ${name}, Find, ${user} tasks below.`
+              }
+             
+        }
+        else{
+             document.getElementById('user').innerHTML=`Welcome Back!! ${name}, Find your tasks below.`;
+        }
         gettodos(id);
         loadusers('http://localhost:8083/api/users','dropdown-item btn',menu);
+        
         if(urlParams.has("tid") === true){
                let tid=urlParams.get('tid');
               let f=document.getElementById('fr');
                 let frame=document.createElement('iframe');
-                frame.setAttribute('src',`details.html?cid=${id}&tid=${tid}`);
+                frame.setAttribute('src',`details.html?cid=${id}&tid=${tid}&name=${user}`);
                 f.appendChild(frame);
 
              }
@@ -49,7 +63,7 @@
                 let tid=urlParams.get('teid');
                let f=document.getElementById('fr');
                  let frame=document.createElement('iframe');
-                 frame.setAttribute('src',`details.html?cid=${id}&teid=${tid}`);
+                 frame.setAttribute('src',`details.html?cid=${id}&teid=${tid}&name=${user}`);
                  f.appendChild(frame);
  
               }
@@ -58,13 +72,13 @@
                 let frame=document.createElement('iframe');
                 frame.setAttribute('src',`update.html`);
                 f.appendChild(frame);
-                window.location.href=`/home.html?cid=${id}`
+                window.location.href=`/home.html?cid=${id}&name=${user}`
               }
              else{
                 let tid=urlParams.get('tid');
               let f=document.getElementById('fr');
                 let frame=document.createElement('iframe');
-                frame.setAttribute('src',`details.html?cid=${id}`);
+                frame.setAttribute('src',`details.html?cid=${id}&name=${user}`);
                 f.appendChild(frame);
              }
              
@@ -82,7 +96,7 @@ function loadusers(url,ce,eve){
           tag.innerHTML=value.name;
           tag.setAttribute('id',value.id);
           tag.style.color="black";
-          tag.href=`home.html?cid=${value.id}`;
+          tag.href=`home.html?cid=${value.id}&name=${value.name}`;
           eve.appendChild(tag);
           if(ce.includes('flex-sm-fill')===true){
             xValues.push(value.name);
@@ -177,6 +191,7 @@ function gettodos(id){
             todoList.setAttribute('class','mt-5 text-center')
            todoList.innerHTML="No tasks for you yet";
            todoList.style.fontSize='20px';
+           document.getElementById('myChart').style.display='none';
            getBadgeCount(a,'all');
         }
         else{
@@ -208,8 +223,8 @@ function gettodos(id){
                 card.appendChild(b);
                 let ti = document.createElement('h5');
                 ti.setAttribute('class','card-title h5');
-                ti.innerHTML=`<a href=home.html?cid=${id}&tid=${data[i].id} data-bs-toggle='off-canvas'><i style='float:right;' class="fa fa-info-circle ms-2" aria-hidden="true"></i>
-                <a href=home.html?cid=${id}&teid=${data[i].id} data-bs-toggle='off-canvas'><i style='float:right' class="fa fa-edit" aria-hidden="true"></i>
+                ti.innerHTML=`<a href=home.html?cid=${id}&tid=${data[i].id}&name=${user} data-bs-toggle='off-canvas'><i style='float:right;' class="fa fa-info-circle ms-2" aria-hidden="true"></i>
+                <a href=home.html?cid=${id}&teid=${data[i].id}&name=${user} data-bs-toggle='off-canvas'><i style='float:right' class="fa fa-edit" aria-hidden="true"></i>
                 `;
                 b.appendChild(ti);
                 let ti1 = document.createElement('h5');
