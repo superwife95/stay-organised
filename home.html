@@ -24,7 +24,8 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <body>
         <div class="container-fluid">
-            <header class="row">
+            <header>
+                <div class="row">
                 <nav class="navbar navbar-expand-lg col-md-12 col-sm-12">
                     <a class="col-3 nav-brand" href="#">
                         <img class="col-2" src="images/logo.webp" alt="no images">
@@ -91,6 +92,7 @@
                     </div>
                 </div>
                 </nav>
+            </div>
         </header>
         <main>
             <div class="row">
@@ -103,13 +105,23 @@
 
             </div>
             <div class="row">
-                <div class="wrapper col-xl-6 col-md-6 col-sm-6 ms-4">
-                    <h5 class="m-0 font-weight-bold text-primary mt-2 ms-1">Overview</h5>
+                <div class="wrapper col-xl-6 rounded-4">
+                    <h5 class="m-0 font-weight-bold text-primary mt-2 ms-1">Overview </h5>
+                    <span class="ms-2">personal Task:<span class="btn ms-1" style="background-color:red"></span></span>
+                    <span class="ms-2">HouseHold Task:<span class="btn ms-1" style="background-color:green"></span></span>
+                    <span class="ms-2">Financial Task:<span class="btn ms-1" style="background-color:blue"></span></span>
+                    <span class="ms-2">Help Others:<span class="btn ms-1" style="background-color:black"></span></span>
+                    <span class="ms-2">Errands:<span class="btn ms-1" style="background-color:brown"></span></span>
+                    <span class="ms-2">Work Task:<span class="btn ms-1" style="background-color:pink"></span></span>
                     <canvas id="myChart">
                     </canvas>
                 </div>
-                <div class="wrapper col-xl-5 col-md-3 col-sm-3 ms-4" id="list" data-bs-spy="scroll">
-                    <h5 class="m-0 font-weight-bold text-primary mt-2 ms-1">Todos</h5>
+                <div class="wrapper col-xl-5 rounded-4" id="list" data-bs-spy="scroll">
+                    <h5 class="m-0 font-weight-bold text-primary mt-2 ms-1">Todos
+                    </h5>
+                    <span class="ms-2">High Priority:<span class="btn ms-1" style="background-color:rgb(255, 165, 0)"></span></span>
+                    <span class="ms-2">Not Completed:<span class="btn ms-1" style="background-color:yellow"></span></span>
+                    <span class="ms-2">Completed:<span class="btn ms-1" style="background-color:lightgreen"></span></span>
                         <div class="col-md-8 col-sm-6 text-center offset-2" id="todoList"></div>
                 </div>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
@@ -134,11 +146,11 @@
                         
         </main>
         <footer class="row">
-           <div class="col-4 mt-3">
+           <div class="col-xl-4 mt-3">
             <h5 class="h5 col-12 text-center"><u>Listopia</u></h5>
             <p class="col-12 text-center">Listopia is website that helps you share your daily tasks <br>with your family or work.<br>we help you stay organised</p>
            </div>
-           <div class="col-4 mt-3">
+           <div class="col-xl-4 mt-3">
             <h5 class="h5 col-12 text-center"><u>Our Products</u></h5>
             <p class="text-center">
             <a class="col-12 mt-2 text-dark" href="mailto:info@listopia.com">ContactUS</a><br>
@@ -146,7 +158,7 @@
             <a class="col-12 mt-2 text-dark" href="https://www.lipsum.com/">Our Products</a><br>
             <a class="col-12 mt-2 text-dark" href="https://www.lipsum.com/">Help</a><br></p>
            </div>
-           <div class="col-4 mt-3 justify-content-center">
+           <div class="col-xl-4 mt-3">
             <h5 class="h5 col-12 text-center"><u>Our Location</u></h5>
             <Address>
                <p class="col-12 text-center"><i class="fa fa-home"></i> 15th Floor,TechCity,Bangalore</p> 

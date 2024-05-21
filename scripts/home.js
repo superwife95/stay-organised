@@ -8,7 +8,7 @@
     var a=0;
     var xValues = [];
     var yValues = [];
-    var barColors = ["red", "green","blue","orange","brown","yellow"];
+    var barColors = ["red", "green","blue","black","brown","pink"];
     var user;
     const offcan=document.getElementById("offcanvasExample");
     const bsOffcanvas = new bootstrap.Offcanvas(offcan) ;

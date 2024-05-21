@@ -13,10 +13,10 @@
 .log{
   width:100%;
 }
+body, html { overflow-x: hidden; }
   
   @media (min-width:1000px) {
     
- 
     .log{
         margin-top: 170px !important;
         background-color: white;
@@ -34,11 +34,14 @@
     #user{
       height:50px;
     }
+    .wrapper{
+    margin-left: 1.5rem !important;
+    }
     
 }
 
 
-@media (max-width:1000px) {
+@media (max-width:768px) {
   #catlist{
     height:68vh !important;
     border:none !important;
@@ -52,6 +55,7 @@
     flex-basis: auto;
     flex-wrap: wrap;
   }
+
 }
 body{
     background-color:#ede8e8 !important;
