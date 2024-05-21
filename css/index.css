@@ -196,3 +196,10 @@ iframe{
   transform: scale(1.1);
   color: #d3cfcf !important;
 }
+footer{
+  background-color:rgb(102 217 241);
+  width:100vw;
+}
+footer .h5{
+  color:rgb(3 68 133);
+}
