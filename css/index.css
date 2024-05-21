@@ -1,4 +1,6 @@
-
+.nav-brand{
+  background-color: #4c60da;
+}
 .caveat-brush-regular {
   font-family: "Caveat Brush", cursive;
   font-weight: 400;
@@ -23,7 +25,7 @@
         width:100%;
     }
     .contDim{
-      height:600px;
+      height:650px;
       width:500px;
     }
     #title{
@@ -52,7 +54,7 @@
   }
 }
 body{
-    background-color: #eeeef1 !important;
+    background-color:#ede8e8 !important;
 }
 .cookie-regular {
   font-family: "Cookie", cursive;
@@ -63,8 +65,11 @@ body{
   font-size: x-large;
 }
 
-  #login,#signUp,.bg,.navbar{
+  #login,#signUp,.bg{
     background: radial-gradient(hsl(323, 56%, 64%), #9198e5);
+  }
+  .navbar,footer{
+    background: #6777ef;
   }
   #login{
     align-content:center;
@@ -90,7 +95,7 @@ body{
     text-shadow: 5px 5px 10px #E6ADBC;
   }
   .nav-item a, .nav-link{
-    color:white;
+    font-size: 20px;
     text-decoration: none;
     float:right;
   }
@@ -123,6 +128,10 @@ body{
     height:100px;
     position: relative;
   }
+  .img1{
+    width:200px !important;
+    height:200px !important;
+  }
   .img{
   bottom: -150px;
   }
@@ -132,6 +141,9 @@ body{
   #title{
     padding-left: 10px;
     padding-top: 70px;
+  }
+  .cardHeight{
+    height:100px !important;
   }
   .box{
     border: 1px solid white;
@@ -151,10 +163,9 @@ body{
 .dropdown-toggle::after {
   font-size: 20px !important;
 }
-.flex-column .nav-link{
-  background-color:#f1aeb5;
-  border-color: black;
-  font-weight: bold;
+.text-gray-800{
+  color:#5a5c69 !important;
+  padding-top: 10px;
 }
 #cat{
   text-align: center;
@@ -163,10 +174,10 @@ body{
 iframe{
   height:500px;
 }
-#catlist,#list{
+/* #catlist,#list{
   border-right:2px double black;
   height:100vh;
-}
+} */
 #catError{
   margin-top: -50px !important;
 }
@@ -175,10 +186,6 @@ iframe{
   padding-top:30px !important;
   font-size:25px !important;
   margin-top:15px;
-}
-#user{
-  padding-top:10px !important;
-  color:black !important;
 }
 .lobster-regular {
   font-family: "Lobster", sans-serif;
@@ -195,9 +202,14 @@ iframe{
   color: #d3cfcf !important;
 }
 footer{
-  background-color:rgb(102 217 241);
   width:100vw;
 }
 footer .h5{
-  color:rgb(3 68 133);
+ background-color: #4c60da;
+}
+.wrapper{
+  background-color: white !important;
+  position: relative;
+  overflow-y: scroll;
+  margin-bottom:20px;
 }

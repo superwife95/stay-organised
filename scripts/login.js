@@ -1,5 +1,8 @@
 import { getUsers } from "./util.js";
-if(localStorage.getItem('id')!=null&&localStorage.getItem('id')!=undefined){
+if(localStorage.getItem('newUsr')=='yes'){
+    localStorage.removeItem('newUsr');
+}
+else if(localStorage.getItem('id')!=null&&localStorage.getItem('id')!=undefined){
     window.location.href=`/home.html?cid=${localStorage.getItem('id')}`;
 }
 window.onload=function(){

@@ -1,5 +1,6 @@
 'use strict';
 import { addData , getUsers } from "./util.js";
+localStorage.setItem('newUsr','yes');
 window.onload=function(){
     let signUp=document.getElementById("signUp");
     signUp.addEventListener('click',onSignUp);
@@ -10,6 +11,8 @@ function onSignUp(){
    let pwd = document.getElementById('rUPwd').value;
    let cpwd = document.getElementById("rUcPwd").value;
    let res = /^[a-zA-Z]+$/.test(name);
+   let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/.test(pwd);
+   console.log(regex);
    document.getElementById('unErr').innerHTML="";
    document.getElementById('uuErr').innerHTML="";
    document.getElementById('upErr').innerHTML="";
@@ -29,7 +32,7 @@ function onSignUp(){
    else if(pwd==''||pwd==null||pwd==undefined){
      errorMessage(document.getElementById('upErr'),"password should not be empty");
    }
-   else if(pwd.length<5||pwd.length>12){
+   else if(regex==false){
     errorMessage(document.getElementById('upErr'),"invalid password");
    }
    else if(cpwd==''||cpwd==null||cpwd==undefined){
@@ -50,7 +53,7 @@ function onSignUp(){
                     "username": uName,
                     "password": pwd
                 };
-                let user = Promise.resolve(addData('http://localhost:8083/api/users',data));
+                let user = Promise.resolve(addData('POST','http://localhost:8083/api/users',data));
                 user.then(data=>{
                     if(data==201){
                         alert("Registered successfully");
