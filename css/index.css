@@ -29,6 +29,27 @@
     #title{
       padding-top:0px !important;
     }
+    #user{
+      height:50px;
+    }
+    
+}
+
+
+@media (max-width:1000px) {
+  #catlist{
+    height:68vh !important;
+    border:none !important;
+    margin-bottom: 200px;
+  }
+
+  #list{
+    border:none !important;
+  }
+  .nav-bar {
+    flex-basis: auto;
+    flex-wrap: wrap;
+  }
 }
 body{
     background-color: #eeeef1 !important;
@@ -61,10 +82,16 @@ body{
     color:#9198e5;
     text-shadow: 5px 5px 10px #E6ADBC;
   }
+  .detst{
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    color:#9f6842;
+    text-shadow: 5px 5px 10px #E6ADBC;
+  }
   .nav-item a, .nav-link{
     color:white;
     text-decoration: none;
-    font-weight:bold;
     float:right;
   }
   .dropdown-item{
@@ -125,14 +152,12 @@ body{
   font-size: 20px !important;
 }
 .flex-column .nav-link{
-  background-color: rgb(218, 210, 210);
-  border-right: 1px double;
+  background-color:#f1aeb5;
   border-color: black;
   font-weight: bold;
 }
 #cat{
-  background-color: white;
-  color:grey !important;
+  color:#9f6842 !important;
   text-align: center;
   margin-bottom:50px !important;
 }
@@ -146,4 +171,28 @@ iframe{
 #catError{
   margin-top: -50px !important;
 }
-
+.over{
+  height:100px;
+  padding-top:30px !important;
+  font-size:25px !important;
+  margin-top:15px;
+}
+#user{
+  padding-top:10px !important;
+  color:black !important;
+  font-size:20px;
+}
+.lobster-regular {
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size:20px;
+  color:black !important;
+}
+#navLink{
+  font-weight: bold;
+}
+#navLink .nav-link:hover{
+  transform: scale(1.1);
+  color: #d3cfcf !important;
+}

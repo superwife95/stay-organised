@@ -20,17 +20,18 @@
         <title>Details</title>
     </head>
     <body>
-        <header>
-            <h5 class="display-5 text-center mt-5 dancing-script" id="det">Details</h5>
+        <div class="container-fluid">
+        <header class="row">
+            <h5 class=" col-12 display-5 mt-5 detst" id="det">Details</h5>
         </header>
-        <main>
-            <div id="noEd">
-                <table id="details" class="mt-5 ms-5">
+        <main class="row">
+            <div id="noEd" class="col-12">
+                <table id="details" class="mt-5 col-sm-6 col-md-12">
 
                 </table>
-                <form class="form" id="form">
-                    <div class="row box">
-                        <input type="text" class="form-control-sm col-8 offset-2 mt-3 disabled border border-secondary"id="cat">
+                <form class="form" id="form" class="col-md-12 col-sm-6">
+                    <div class="col-12 box wi">
+                        <input type="text" class="form-control-sm col-8 offset-2 mt-3 disabled border border-secondary" style="margin-bottom: 20px !important;" id="cat">
                         <input type="text" class="form-control-sm col-8 offset-2 mt-3 border border-secondary disabled" id="todoData" placeholder="Enter your task" style="margin-top:-30px !important"></textarea>
                         <input id="deadline" class="form-control-sm col-8 offset-2 mt-3 border border-secondary disabled" type="text" placeholder=" Enter Deadline">
                         <input type="text" class="form-select-sm col-8 offset-2 mt-3 disabled border border-secondary" id="priority" placeholder="select priority">
@@ -43,6 +44,7 @@
                    </form>
             </div>
         </main>
+    </div>
         <footer></footer>
     </body>
 </html>

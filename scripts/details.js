@@ -19,6 +19,12 @@ else{
     document.getElementById('form').innerHTML="";
     ne.setAttribute('class','mt-2 ps-0 col-12')
     ne.innerHTML="Get the details of the todo you select here";
+    let img=document.createElement('img');
+    img.setAttribute('src','images/nodata1.jpeg');
+    img.setAttribute('alt','no-image');
+    img.setAttribute('class','img-fluid mt-5 w-2');
+    ne.appendChild(img);
+    ne.style.fontSize="15px";
 }
 function getTodo(id,bool){
     let users = Promise.resolve(getUsers(`http://localhost:8083/api/todos/${id}`));

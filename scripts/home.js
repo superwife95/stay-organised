@@ -1,27 +1,34 @@
  import { getUsers,deleteData} from "./util.js";
  var id;
  var uname;
+ var name;
  let menu = document.getElementById('navmenu');
     let catSelect=document.getElementById('categeories');
     var pt=0,ht=0,ft=0,wt=0,ho=0,er=0;
     var a=0;
-
+    var xValues = [];
+    var yValues = [];
+    var barColors = ["red", "green","blue","orange","brown","yellow"];
+    
   window.onload=function load(){
     let val=document.getElementById('letter');
     if(localStorage.getItem('name')!=null&&localStorage.getItem('name')!=undefined){
         id=localStorage.getItem('id');
         uname=localStorage.getItem('userName');
-        setStylesforProfile(val,localStorage.getItem('name'));
+        name=localStorage.getItem('name');
+        setStylesforProfile(val,name);
         document.getElementById('db').href=`home.html?cid=${localStorage.getItem('id')}`;
        
     }
     else if(sessionStorage.getItem('name')!=null&&sessionStorage.getItem('name')!=undefined){
         id=sessionStorage.getItem('id');
-        uname=sessionStorage.getItem('userName')
-        setStylesforProfile(val,sessionStorage.getItem('name'));
+        uname=sessionStorage.getItem('userName');
+        name=sessionStorage.getItem('name');
+        setStylesforProfile(val,name);
         document.getElementById('db').href=`home.html?cid=${sessionStorage.getItem('id')}`
        
     }
+    document.getElementById('user').innerHTML=`Welcome Back!! ${name}, Find your tasks below.`
     const urlParams = new URLSearchParams(location.search);
 	// location.search returns the query string part of the URL
         if (urlParams.has("cid") === true)
@@ -77,33 +84,74 @@ function loadusers(url,ce,eve){
           tag.style.color="black";
           tag.href=`home.html?cid=${value.id}`;
           eve.appendChild(tag);
-          if(ce.includes('lex-sm-fill')===true){
+          if(ce.includes('flex-sm-fill')===true){
+            xValues.push(value.name);
             if(value.name=='Financial Task'){
+                yValues.push(ft);
                 getBadgeCount(ft,value.id);
             }
             else if(value.name=='Work Task'){
+                yValues.push(wt);
                 getBadgeCount(wt,value.id);
             }
             else if(value.name=='Errand'){
+                yValues.push(er);
                 getBadgeCount(er,value.id);
             }
             else if(value.name=='Personal Task'){
+                yValues.push(pt);
                 getBadgeCount(pt,value.id);
             }
             else if(value.name=='Household Task'){
+                yValues.push(ht);
                 getBadgeCount(ht,value.id);
             }
             else if(value.name=='Help Others'){
+                yValues.push(ho);
                 getBadgeCount(ho,value.id);
             }
+            new Chart("myChart", {
+                type: "bar",
+                data: {
+                  labels: xValues,
+                  datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                  }]
+                },
+                options: {
+                  legend: {display: false},
+                  title: {
+                    display: true,
+                    text: "todo tasks overview",
+                  },
+                  scales: {
+                    yAxes: [{
+                        ticks: {
+                            color:"lightpink",
+                            beginAtZero: true,
+                            userCallback: function(label, index, labels) {
+                                // when the floored value is the same as the value we have a whole number
+                                if (Math.floor(label) === label) {
+                                    return label;
+                                }
+           
+                            },
+                        }
+                    }],
+                },
+                },
+              });
            
           }
      }
  });
 }
+
 function setStylesforProfile(event,value){
     event.innerHTML=value.charAt(0);
     event.style.backgroundColor= "green";
+    event.style.float= "right";
    event.style.borderRadius="100%";
 }
 function signOut(){
@@ -120,6 +168,7 @@ function deleteAccount(){
 }
 function gettodos(id){
     let todoList = document.getElementById('todoList');
+    todoList.style.marginTop="50px";
     let todo = Promise.resolve(getUsers(`http://localhost:8083/api/todos/byuser/${id}`));
     todo.then(data=>{
         todoList.style.marginBottom='-200px';
@@ -152,7 +201,7 @@ function gettodos(id){
                     ho++;
                 }
                 let card= document.createElement('div');
-                card.setAttribute('class','card me-2 mt-2');
+                card.setAttribute('class','card me-2 mt-2 col-12');
                 let h= document.createElement('div');
                 let b=document.createElement('div');
                 b.setAttribute('class','card-body');
@@ -188,12 +237,12 @@ function gettodos(id){
             getBadgeCount(a,'all');
         }
     });
-    loadusers('http://localhost:8083/api/categories','flex-sm-fill text-sm-center nav-link mb-2',catSelect);
+    loadusers('http://localhost:8083/api/categories','flex-sm-fill text-sm-center nav-link mb-2 rounded-5 disabled col-8 offset-2',catSelect);
 }
 function getBadgeCount(count,id){
     let i = document.getElementById(id);
     let span=document.createElement('span');
-                span.setAttribute('class','badge rounded-3 bg-primary');
+                span.setAttribute('class','badge rounded-5 bg-secondary');
                span.style.float="right";
                 span.innerHTML=count;
                 i.appendChild(span);

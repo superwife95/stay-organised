@@ -20,11 +20,13 @@
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
             integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
             crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Pacifico&display=swap" rel="stylesheet">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <body>
         <div class="container-fluid">
             <header>
                <div class="row">
-                <nav class="navbar navbar-expand-lg col-12">
+                <nav class="navbar navbar-expand-lg col-md-12 col-sm-12">
                     <a class="col-4 nav-brand" href="#">
                         <img class="col-2" src="images/logo.webp" alt="no images">
                         <span class="caveat-brush-regular col-5" style="font-size:25px;">Listopia</span>
@@ -35,20 +37,20 @@
                    <div class="collapse navbar-collapse" id="navLink">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a id= "db" class="nav-link me-2">DashBoard</a>
+                            <a id= "db" class="nav-link me-2  text-dark"><i class="fa fa-dashboard"></i> DashBoard</a>
                         </li>
                         <li class="nav-item">
-                            <a href="todo.html" class="nav-link">Create New Task</a>
+                            <a href="todo.html" class="nav-link text-dark"> <i class='fas fa-tasks'></i> Create New Task</a>
                         </li>
                         <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle me-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-                                    All Users
+                                    <a class="nav-link dropdown-toggle me-2 text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                                        <i class='fas fa-users'></i> All Users
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="navmenu">
                                     </div>
                        </li>
                         <li class="nav-item">
-                            <a href="signup.html" class="nav-link me-2">Add New User</a>
+                            <a href="signup.html" class="nav-link me-2 text-dark"><i class='fas fa-user-plus'></i> Add New User</a>
                         </li>
                     </ul>
                     <a href="#userMenu" id="letter" class="col-1 offset-3 btn btn-success dropdown-toggle" role="button" data-bs-toggle="dropdown"></a>
@@ -93,17 +95,19 @@
             </div>
         </header>
         <main class="row">
-                        <div class="col-md-4 col-xl-4 col-sm-5 col-md-5 col-xs-5" id="catlist">
+                <div class="col-12 col-md-12 col-xl-12 col-sm-12 bg-info text-center pt-2 fw-bold" id="user"></div>
+                        <div class="col-md-3 col-xl-4 col-sm-12 col-12" id="catlist">
                             <nav class="nav flex-column flex-sm-column" id="categeories">
-                                <a class="flex-sm-fill text-sm-center nav-link text-dark mb-4 disabled" href="#" id="cat">Categeories</a>
-                                <a class="flex-sm-fill text-sm-center nav-link  text-dark mb-2" href="#" id="all">All</a>
+                                <a class="flex-sm-fill text-sm-center nav-link text-dark mb-4 disabled rounded-5 disabled over" href="#" id="cat">OverView</a>
+                                <canvas id="myChart" class="col-md-12 col-sm-6"></canvas>
+                                <a class="flex-sm-fill text-sm-center nav-link  text-dark mb-2 disabled rounded-5 col-8 offset-2 " href="#" id="all">All</a>
                             </nav>
                         </div>
-                        <div class="col-md-5 col-xl-5 col-xs-5 col-md-4 col-sm-5" id="list">
+                        <div class="col-md-5 col-xl-5 col-5" id="list">
                             <div class="col-md-6 col-sm-6 text-center offset-2" id="todoList"></div>
                             
                             </div>
-                            <div class="col-md-3 col-xl-3 col-xs-3 col-sm-5" id="fr">
+                            <div class="col-md-3 col-xl-3 col-7" id="fr">
                             </div>
         </main>
     </div>

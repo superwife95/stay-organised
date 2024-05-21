@@ -33,13 +33,14 @@ function login(){
                     localStorage.setItem("id",value.id);
                     localStorage.setItem("name",value.name);
                     localStorage.setItem('userName',value.username);
+                    window.location.href=`/home.html?cid=${localStorage.getItem('id')}`;
                 }
                 else{
                     sessionStorage.setItem("id",value.id);
                     sessionStorage.setItem("name",value.name);
                     sessionStorage.setItem('userName',value.username);
+                    window.location.href=`/home.html?cid=${sessionStorage.getItem('id')}`;
                 }
-                window.location.href=`/home.html?cid=${sessionStorage.getItem('id')}`;
                 break;
              }
              else{
