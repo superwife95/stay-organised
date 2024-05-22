@@ -10,9 +10,6 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Caveat+Brush&family=Cookie&family=Dancing+Script:wght@400..700&family=Danfo&family=Nabla&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="css/index.css">
         <script src="scripts/signup.js"></script>
         <link rel="icon" href="images/logo.webp">
@@ -26,9 +23,9 @@
         <main id="main">
             <div class="container mt-5 contDim">
                 <div class="row box">
-                        <img src="images/todo1.jpeg" class="col-2 img1">
+                        <img src="images/todo1.jpeg" class="col-2 img1" alt="no image">
                        <form class="form">
-                        <select class="form-select-sm col-8 offset-2"id="cat">
+                        <select class="form-select-sm col-8 offset-2" id="cat">
                             <option class="text-secondary" value="null">Select Categeory</option>
                         </select>
                         <div id="catError" class="col-8 offset-2"></div>
@@ -36,14 +33,14 @@
                         <div id="taskError" class="col-8 offset-2"></div>
                         <input id="deadline" class="form-control-sm col-8 offset-2 mt-3 border border-secondary" type="text" placeholder=" Enter Deadline" onfocus="(this.type='date')">
                         <div id="deadlineError" class="col-8 offset-2"></div>
-                        <select class="form-select-sm col-8 offset-2 mt-3" id="priority" placeholder="select priority">
+                        <select class="form-select-sm col-8 offset-2 mt-3" id="priority">
                             <option value=null class="sel">Select Priority</option>
                             <option id="low" value="Low">Low</option>
                             <option id="medium" value="Medium">Medium</option>
                             <option id="high" value="High">High</option>
                          </select>
                          <div id="prioError" class="col-8 offset-2"></div>
-                        <select placeholder="Assign To" id="assign" class="col-8 offset-2 mt-3">
+                        <select id="assign" class="col-8 offset-2 mt-3">
                             <option class="text-secondary" value=null selected>Assign to</option>
                         </select>
                         <div id="assignError" class="col-8 offset-2"></div>
