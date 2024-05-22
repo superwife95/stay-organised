@@ -157,7 +157,7 @@ function loadusers(url,ce,eve){
             else if(value.name=='Help Others'){
                 yValues.push(ho);
                 getBadgeCount(ho,value.id);
-                icon='<i class="fas fa-hands-helping" style="float:right;font-size: 30px;"></i>';
+                icon='<i class="fa fa-handshake-o" style="float:right;font-size: 30px;"></i>';
                 tit.innerHTML=value.name + icon;
             }
             new Chart("myChart", {

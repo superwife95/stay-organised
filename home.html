@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -18,9 +18,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Caveat+Brush&family=Cookie&family=Dancing+Script:wght@400..700&family=Danfo&family=Nabla&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
-            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Pacifico&display=swap" rel="stylesheet">
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <body>
@@ -41,17 +39,17 @@
                             <a id= "db" class="nav-link me-2  text-dark" data-toggle="tooltip" data-placement="top" title="DashBoard"><i class="fa fa-dashboard"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a href="todo.html" class="nav-link text-dark" data-toggle="tooltip" data-placement="top" title="Create New Task"> <i class='fas fa-tasks'></i></a>
+                            <a href="todo.html" class="nav-link text-dark" data-toggle="tooltip" data-placement="top" title="Create New Task"> <i class='fa fa-tasks'></i></a>
                         </li>
                         <li class="nav-item dropdown" data-toggle="tooltip" data-placement="top" title="Users">
                                     <a class="nav-link dropdown-toggle me-2 text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-                                        <i class='fas fa-users'></i>
+                                        <i class='fa fa-users'></i>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="navmenu">
                                     </div>
                        </li>
                         <li class="nav-item">
-                            <a href="signup.html" class="nav-link me-2 text-dark" data-toggle="tooltip" data-placement="top" title="Create New User"><i class='fas fa-user-plus'></i></a>
+                            <a href="signup.html" class="nav-link me-2 text-dark" data-toggle="tooltip" data-placement="top" title="Create New User"><i class='fa fa-user-plus'></i></a>
                         </li>
                     </ul>
                     <a href="#userMenu" id="letter" class="col-1 offset-3 btn btn-success dropdown-toggle" role="button" data-bs-toggle="dropdown"></a>
@@ -63,8 +61,8 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-heading">
+                                    <div class="btn btn-close" style="float:right;" data-bs-dismiss="modal"></div>
                                     <h6 class="modal-title display-6">Delete Account
-                                        <div class="btn btn-close"style="float:right;" data-bs-dismiss="modal"></div>
                                     </h6>
                                 </div>
                                 <div class="modal-body">Are You sure you want to Delete? if you click Delete your account will be permanantely deleted</div>
@@ -79,8 +77,8 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-heading">
+                                    <div class="btn btn-close" style="float:right;" data-bs-dismiss="modal"></div>
                                     <h6 class="modal-title display-6">SignOut
-                                        <div class="btn btn-close"style="float:right;" data-bs-dismiss="modal"></div>
                                     </h6>
                                 </div>
                                 <div class="modal-body">Are You sure you want to signout from your account?</div>
@@ -119,7 +117,7 @@
                     <span class="ms-2">Completed:<span class="btn ms-1" style="background-color:palegreen"></span></span>
                         <div class="col-md-8 col-sm-6 text-center offset-2" id="todoList"></div>
                 </div>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample">
                     <div class="offcanvas-header">
                       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" id="close"></button>
                     </div>
@@ -157,7 +155,7 @@
             <h5 class="h5 col-12 text-center"><u>Our Location</u></h5>
             <Address>
                <p class="col-12 text-center"><i class="fa fa-home"></i> 15th Floor,TechCity,Bangalore</p> 
-               <p class="col-12 text-center"><i class="fa fa-envelope"></i></i> info@listopia.com</p> 
+               <p class="col-12 text-center"><i class="fa fa-envelope"></i> info@listopia.com</p> 
                <p class="col-12 text-center"><i class="fa fa-mobile-phone"></i> +918888888888</p>
                <p class="col-12 text-center"><i class="fa fa-fax"></i> +01 234 567 89</p>
             </Address>
