@@ -25,7 +25,8 @@ body, html { overflow-x: hidden; }
         width:100%;
     }
     .contDim{
-      height:650px;
+      margin-top:-10px;
+      height:700px;
       width:500px;
     }
     #title{
@@ -55,8 +56,12 @@ body, html { overflow-x: hidden; }
     flex-basis: auto;
     flex-wrap: wrap;
   }
-
-}
+  #navmenu .dropdown-item {
+    float: left !important;
+        margin-left: -200px !important;
+    }
+  }
+  
 body{
     background-color:#ede8e8 !important;
 }

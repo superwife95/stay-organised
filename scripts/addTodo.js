@@ -40,7 +40,7 @@ window.onload=function(){
             d.then(data=>{
                 if(data==201){
                     alert("Task added successfully");
-                    window.location.href="/home.html";
+                    window.location.href=`/home.html?cid=${user}&name=${document.getElementById('assign').selectedOptions[0].innerHTML}`;
                 }
             });
         }

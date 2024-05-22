@@ -1,4 +1,7 @@
  import { getUsers,deleteData} from "./util.js";
+ $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
  var id;
  var uname;
  var name;
@@ -8,7 +11,7 @@
     var a=0;
     var xValues = [];
     var yValues = [];
-    var barColors = ["red", "green","blue","black","brown","pink"];
+    var barColors = ["lavender", "lightBlue","plum","lightskyblue","paleturquoise","lightpink"];
     var user;
     const offcan=document.getElementById("offcanvasExample");
     const bsOffcanvas = new bootstrap.Offcanvas(offcan) ;
@@ -241,7 +244,6 @@ function gettodos(id){
           document.querySelector('.wrapper').style.paddingTop="150px";
           document.querySelector('.wrapper').style.fontSize="20px";
           document.querySelector('.wrapper').style.textAlign="center";
-           getBadgeCount(a,'all');
         }
         else{
             for(let i=0;i<data.length;i++){
@@ -287,19 +289,18 @@ function gettodos(id){
                 card.appendChild(d);
                 todoList.appendChild(card);
                 if(data[i].completed==true){
-                       card.style.backgroundColor="lightgreen";
+                       card.style.backgroundColor="palegreen";
                        card.style.color="black";
                 }
                 else{
                     if(data[i].priority=='High'){
-                        card.style.backgroundColor='rgb(255, 165, 0)';
+                        card.style.backgroundColor='#ee8282';
                     }
                     else
-                    card.style.backgroundColor="yellow";
+                    card.style.backgroundColor="rgb(246 219 169)";
                     card.style.color="black";
                 }
             }
-            getBadgeCount(a,'all');
         }
     });
     loadusers('http://localhost:8083/api/categories','col-xl-3 col-md-6 mb-4',catSelect);
