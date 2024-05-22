@@ -90,14 +90,14 @@ body{
   }
   .dancing-script {
     font-family: "Dancing Script", cursive;
-    font-optical-sizing: auto;
+    /* font-optical-sizing: auto; */
     font-weight: bold;
     font-style: normal;
     color:#9198e5;
     text-shadow: 5px 5px 10px #E6ADBC;
   }
   .detst{
-    font-optical-sizing: auto;
+    /* font-optical-sizing: auto; */
     font-weight: bold;
     font-style: normal;
     color:#9f6842;

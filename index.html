@@ -15,48 +15,48 @@
         <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Caveat+Brush&family=Cookie&family=Dancing+Script:wght@400..700&family=Danfo&family=Nabla&display=swap" rel="stylesheet">
         <script type="module" src="scripts/login.js"></script>
         <script type="module" src="scripts/util.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
-            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <header></header>
     <main>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 bg log">
-                <img src="images/logo.webp" class="col-3 img">
-                <h1 class="caveat-brush-regular display-1 ac" id="title">Listopia</h1>
-                <p  class="cookie-regular mt-3"> Listopia helps you stay organized and productive through out the day</p>
-            </div>
-            <div class="col-md-6 log">
-            <h2 class="display-3 text-center mt-5 dancing-script">Welcome Back!!</h2>
+        <div class="container">
             <div class="row">
-                <form class="form">
-                <div class="input-group col-8 offset-3 mt-4">
-                    <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
-                    <input id="uEmail" type="text" class="form-control-sm" placeholder="Enter your User Name" required>
-                    <div class="col-12 mt-1 mb-1" id="uError"></div>
+                <div class="col-md-6 bg log">
+                    <img src="images/logo.webp" class="col-3 img" alt="no image">
+                    <h1 class="caveat-brush-regular display-4 ac" id="title">Listopia</h1>
+                    <p  class="cookie-regular mt-3"> Listopia helps you stay organized and productive through out the day</p>
                 </div>
-                <div class="input-group mt-4 col-8 offset-3">
-                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                    <input id="name" type="password" class="form-control-sm" placeholder="Enter your password" required>
-                    <div id="pwdError" class="col-12 mt-2 mb-1"></div>
-                </div>
-                <div class="row mt-4">
-                    <div class="form-check col-4 offset-3">
-                        <input type="checkbox" class="form-check-input" id="remMe">
-                        <label for="remMe" class="form-check-label">Remember ME</label>
+                <div class="col-md-6 log">
+                    <h2 class="display-3 text-center mt-5 dancing-script">Welcome Back!!</h2>
+                    <div class="row">
+                            <form class="form">
+                            <div class="input-group col-8 offset-3 mt-4">
+                                <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                <input id="uEmail" type="text" class="form-control-sm" placeholder="Enter your User Name" required>
+                                <div class="col-12 mt-1 mb-1" id="uError"></div>
+                            </div>
+                            <div class="input-group mt-4 col-8 offset-3">
+                                <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                                <input id="name" type="password" class="form-control-sm" placeholder="Enter your password" required>
+                                <div id="pwdError" class="col-12 mt-2 mb-1"></div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="form-check col-4 offset-3">
+                                    <input type="checkbox" class="form-check-input" id="remMe">
+                                    <label for="remMe" class="form-check-label">Remember ME</label>
+                                </div>
+                            </div>
+                            <input type="button" class="btn rounded-5 mt-5" value="Login" id="login">
+                            </form>
+                            <div class="row mt-4">
+                            <p class="col-6 offset-3">Doesnt have an account? <a href="signup.html">SignUp</a></p>
+                            </div>
                     </div>
                 </div>
-                <input type="button" class="btn rounded-5 mt-5" value="Login" id="login">
-                </form>
-                <div class="row mt-4">
-                   <p class="col-6 offset-3">Doesnt have an account? <a href="signup.html">SignUp</a></p>
-               </div>
             </div>
         </div>
-    </div>
    </main>
+   <footer></footer>
 </body>
 </html>
