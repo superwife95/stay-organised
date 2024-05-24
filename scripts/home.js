@@ -9,9 +9,9 @@
     let catSelect=document.getElementById('categeories');
     var pt=0,ht=0,ft=0,wt=0,ho=0,er=0;
     var a=0;
-    var xValues = [];
+    var xValues = ["Completed Tasks","Not Completed Tasks"," Not completed High Priority Tasks"," Not Completed Medium Priority Tasks"," Not completed Low Priority Tasks"];
     var yValues = [];
-    var barColors = ["lavender", "lightBlue","plum","lightskyblue","paleturquoise","lightpink"];
+    var barColors = ["palegreen", "PapayaWhip","lightpink","PowderBlue",'PaleTurquoise'];
     var user;
     const offcan=document.getElementById("offcanvasExample");
     const bsOffcanvas = new bootstrap.Offcanvas(offcan) ;
@@ -122,40 +122,32 @@ function loadusers(url,ce,eve){
                 card.appendChild(h);
                 tag.appendChild(card);
                 eve.appendChild(tag);
-
-            xValues.push(value.name);
             if(value.name=='Financial Task'){
-                yValues.push(ft);
                 icon='<i class="fa fa-bank" style="float:right;font-size: 30px;" aria-hidden="true"></i>';
                 tit.innerHTML=value.name + icon;
                 getBadgeCount(ft,value.id);
             }
             else if(value.name=='Work Task'){
-                yValues.push(wt);
                 getBadgeCount(wt,value.id);
                 icon='<i class="fa fa-briefcase" style="float:right;font-size: 30px;" aria-hidden="true"></i>';
                 tit.innerHTML=value.name + icon;
             }
             else if(value.name=='Errand'){
-                yValues.push(er);
                 getBadgeCount(er,value.id);
                 icon='<i class="fa fa-shopping-cart" style="float:right;font-size: 30px;" aria-hidden="true"></i>';
                 tit.innerHTML=value.name + icon;
             }
             else if(value.name=='Personal Task'){
-                yValues.push(pt);
                 getBadgeCount(pt,value.id);
                 icon="<i class='fa fa-user-circle' style='float:right;font-size: 30px;' aria-hidden='true'></i> ";
                 tit.innerHTML=value.name + icon;
             }
             else if(value.name=='Household Task'){
-                yValues.push(ht);
                 getBadgeCount(ht,value.id);
                 icon='<i class="fa fa-home" style="float:right;font-size: 30px;" aria-hidden="true"></i>';
                 tit.innerHTML=value.name + icon;
             }
             else if(value.name=='Help Others'){
-                yValues.push(ho);
                 getBadgeCount(ho,value.id);
                 icon='<i class="fa fa-handshake-o" style="float:right;font-size: 30px;"></i>';
                 tit.innerHTML=value.name + icon;
@@ -229,6 +221,11 @@ function deleteAccount(){
     .catch(error=>console.log(error.message));
 }
 function gettodos(id){
+    let com=0;
+    let noc=0;
+    let hp=0;
+    let mp=0;
+    let lp=0;
     let todoList = document.getElementById('todoList');
     todoList.style.marginTop="50px";
     let todo = Promise.resolve(getUsers(`http://localhost:8083/api/todos/byuser/${id}`));
@@ -288,19 +285,33 @@ function gettodos(id){
                 d.innerHTML=`Complete by: ${data[i].deadline}`;
                 card.appendChild(d);
                 todoList.appendChild(card);
+
                 if(data[i].completed==true){
                        card.style.backgroundColor="palegreen";
                        card.style.color="black";
+                          com++;
                 }
                 else{
+                       noc++
                     if(data[i].priority=='High'){
-                        card.style.backgroundColor='#ee8282';
+                        card.style.backgroundColor='lightpink';
+                          hp++;
                     }
-                    else
-                    card.style.backgroundColor="rgb(246 219 169)";
-                    card.style.color="black";
+                    else{
+                        card.style.backgroundColor="PapayaWhip";
+                        card.style.color="black";
+                        if(data[i].priority=='Low'){
+                               lp++;
+                        }
+                        else{
+                               mp++;
+                        }
+                    }
+                   
                 }
             }
+            getBadgeCount(a,'total')
+            yValues.push(com,noc,hp,mp,lp);
         }
     });
     loadusers('http://localhost:8083/api/categories','col-xl-3 col-md-6 mb-4',catSelect);

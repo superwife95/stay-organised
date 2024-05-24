@@ -218,7 +218,6 @@ footer .h5{
 }
 .wrapper{
   background-color: white !important;
-  position: relative;
-  overflow-y: scroll;
+  overflow: scroll;
   margin-bottom:20px;
 }
