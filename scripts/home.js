@@ -272,8 +272,8 @@ function gettodos(id){
                 card.appendChild(b);
                 let ti = document.createElement('h5');
                 ti.setAttribute('class','card-title h5');
-                ti.innerHTML=`<a href=home.html?cid=${id}&tid=${data[i].id}&name=${user}><i style='float:right;' class="fa fa-info-circle ms-2" aria-hidden="true"></i>
-                <a href=home.html?cid=${id}&teid=${data[i].id}&name=${user} data-bs-toggle='off-canvas'><i style='float:right' class="fa fa-edit" aria-hidden="true"></i>
+                ti.innerHTML=`<a href=home.html?cid=${id}&tid=${data[i].id}&name=${user}><i style='float:right;' class="fa fa-info-circle ms-2" data-toggle="tooltip" data-placement="top" title="Get Details" aria-hidden="true"></i>
+                <a href=home.html?cid=${id}&teid=${data[i].id}&name=${user} data-bs-toggle='off-canvas'><i style='float:right' class="fa fa-edit" data-toggle="tooltip" data-placement="top" title="Edit task" aria-hidden="true"></i>
                 `;
                 b.appendChild(ti);
                 let ti1 = document.createElement('h5');
